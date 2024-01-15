@@ -43,9 +43,9 @@
   },
   "lint-staged": {
     "*.{js,jsx,vue,ts,tsx}": [
-      "yarn lint",
+      "pnpm lint",
       "prettier --write",
-      "git add"
+      "yarn lint"
     ]
   },
   "config": {
