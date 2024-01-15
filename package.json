@@ -45,7 +45,7 @@
     "*.{js,jsx,vue,ts,tsx}": [
       "pnpm lint",
       "prettier --write",
-      "yarn lint"
+      "git add"
     ]
   },
   "config": {
