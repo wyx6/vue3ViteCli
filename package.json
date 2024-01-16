@@ -36,15 +36,10 @@
     "vite": "^5.0.8",
     "vue-tsc": "^1.8.25"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{js,jsx,vue,ts,tsx}": [
       "pnpm lint",
-      "prettier --write",
+      "pnpm prettier",
       "git add"
     ]
   },
