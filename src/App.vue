@@ -1,8 +1,3 @@
-<script setup lang="ts">
-import HelloWorld from '@/components/HelloWorld.vue'
-console.log(import.meta.env.VITE_APP_WEB_URL)
-</script>
-
 <template>
   <div>
     <a href="https://vitejs.dev" target="_blank">
@@ -14,6 +9,11 @@ console.log(import.meta.env.VITE_APP_WEB_URL)
   </div>
   <HelloWorld msg="Vite + Vue" />
 </template>
+
+<script setup lang="ts">
+import HelloWorld from '@/components/HelloWorld.vue'
+console.log(import.meta.env.VITE_APP_WEB_URL)
+</script>
 
 <style scoped>
 .logo {

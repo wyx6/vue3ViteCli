@@ -148,7 +148,9 @@ module.exports = {
     'no-fallthrough': 'warn',
     'no-extra-boolean-cast': 'warn',
     'no-case-declarations': 'warn',
-    'no-async-promise-executor': 'warn'
+    'no-async-promise-executor': 'warn',
+    // 关闭名称校验
+    'vue/multi-word-component-names': 'off'
   },
   globals: {
     defineProps: 'readonly',
