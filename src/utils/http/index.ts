@@ -1,4 +1,3 @@
-// http/index.js
 import axios, { AxiosRequestConfig } from 'axios'
 
 // 创建axios的一个实例
@@ -10,11 +9,10 @@ const instance = axios.create({
   }
 })
 
-let loading: any
-//显示loading
+//显示loading,显示加载动画
 export const showLoading = () => {}
 
-//隐藏loading
+//隐藏loading，关闭动画
 export const hideLoading = () => {
   //啥也不用干
 }
@@ -23,7 +21,7 @@ export const hideLoading = () => {
 instance.interceptors.request.use(
   (config: any) => {
     showLoading()
-    const token = window.sessionStorage.getItem('token')
+    const token = window.localStorage.getItem('token')
     if (token) {
       config.headers.token = token
     }
@@ -50,13 +48,30 @@ instance.interceptors.response.use(
     if (error.response && error.response.status) {
       const status = error.response.status
       //对status进行判断
+      switch (status) {
+        case 401:
+          message = 'TOKEN过期'
+          break
+        case 403:
+          message = '无权访问'
+          break
+        case 404:
+          message = '请求地址错误'
+          break
+        case 500:
+          message = '服务器出现问题'
+          break
+        default:
+          message = '网络出现问题'
+          break
+      }
       return Promise.reject(error)
     }
     return Promise.reject(error)
   }
 )
 
-export default async <T = any>(config: AxiosRequestConfig) => {
+export default async <T>(config: AxiosRequestConfig) => {
   const res = await instance(config)
   return res.data as T
 }

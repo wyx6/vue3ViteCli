@@ -1,6 +1,18 @@
-//仓库大仓库
-import { createPinia } from 'pinia'
-//创建大仓库
-const pinia = createPinia()
-//对外暴露：入口文件需要安装仓库
-export default pinia
+// src/store/index.ts
+import { useCounterStore } from './counter'
+//还可以引入其它仓库模块
+
+export interface IAppStore {
+  useCounter: ReturnType<typeof useCounterStore>
+}
+
+const appStore: IAppStore = {} as IAppStore
+
+/**
+ * 注册app状态库
+ */
+export const registerStore = () => {
+  appStore.useCounter = useCounterStore()
+}
+
+export default appStore
