@@ -47,6 +47,7 @@ instance.interceptors.response.use(
     // 响应错误
     if (error.response && error.response.status) {
       const status = error.response.status
+      let message = ''
       //对status进行判断
       switch (status) {
         case 401:

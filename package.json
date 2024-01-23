@@ -2,10 +2,11 @@
   "name": "wyx-vue3-vite",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "dev:app1": "vite serve src/app1/ --config ./vite.config.ts",
+    "dev:app2": "vite serve src/app2/ --config ./vite.config.ts",
+    "build:app1": "vue-tsc && vite build",
+    "build:app2": "vue-tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint src --fix --ext .ts,.tsx,.vue,.js,.jsx",
     "prettier": "prettier --write .",
@@ -14,12 +15,13 @@
     "commitlint": "commitlint --config commitlint.config.cjs -e -V",
     "commit": "git-cz",
     "build:dev": "vite build --mode development",
-    "build:pro": "vite build --mode production"
+    "build:pro": "vite build --mode production",
+    "init-app": "node ./src/utils/initApp/index.ts"
   },
   "dependencies": {
     "axios": "^1.6.5",
     "element-plus": "^2.5.1",
-    "pinia": "2.0.0-rc.10",
+    "pinia": "2.1.7",
     "vue": "^3.3.11",
     "vue-router": "4"
   },
@@ -27,6 +29,7 @@
     "@commitlint/cli": "^18.4.4",
     "@commitlint/config-conventional": "^18.4.4",
     "@rushstack/eslint-patch": "^1.7.0",
+    "@types/node": "^20.11.5",
     "@typescript-eslint/eslint-plugin": "^6.18.1",
     "@typescript-eslint/parser": "^6.18.1",
     "@vitejs/plugin-vue": "^4.6.2",
