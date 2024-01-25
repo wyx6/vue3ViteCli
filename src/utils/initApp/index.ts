@@ -5,7 +5,7 @@ const fs = require('fs')
 const inquirer = require('inquirer')
 const stat = fs.stat
 const targetDir = path.resolve(__dirname, './template')
-//copy文件目录常用函数，都是常见api,
+//复制文件目录
 const copyFile = (targetDir, resultDir) => {
   // 读取文件、目录
   fs.readdir(targetDir, function (err, paths) {

@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios'
+import NProgress from 'nprogress'
 
 // 创建axios的一个实例
 const instance = axios.create({
@@ -10,11 +11,13 @@ const instance = axios.create({
 })
 
 //显示loading,显示加载动画
-export const showLoading = () => {}
+export const showLoading = () => {
+  NProgress.start()
+}
 
 //隐藏loading，关闭动画
 export const hideLoading = () => {
-  //啥也不用干
+  NProgress.done()
 }
 
 // 请求拦截器
